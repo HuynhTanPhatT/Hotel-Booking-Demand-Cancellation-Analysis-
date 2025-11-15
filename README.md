@@ -247,14 +247,15 @@ This part will be in **Key Insights & Visualization** section.
    -> This indicates that `No Deposit` bookings through `TA/TO` channels are largely **non-guaranteed guests**. It makes the hotel difficult for predicting the "book-cancel" behavior of new guests.
 
 2. **Cancellation Behavior of Early-Bird Guests**
-a. `Days to Cancellation` - How long after booking do guests cancel ?
-       - On average, guests cancel **46.26** days after making a reservation
-       - City & Resort Hotel: many guests cancel **on the same day** they made booking (**972 cancellations** - **12.18%** of total cancellations)
+    - `Days to Cancellation` - How long after booking do guests cancel ?
+        - On average, guests cancel **46.26** days after making a reservation
+        - City & Resort Hotel: many guests cancel **on the same day** they made booking (**972 cancellations** - **12.18%** of total cancellations)
+       
        -> The earlier cancellation, the easier for the hotel to manage room inventory and resell those rooms in time.
 
-    b. `Cancellation Lead Time` - How long before check-in do guests cancel ?
-       - On average, guests cancel **82.10** days before check-in
-       - Somes guests cancel close to check-in:
+    - `Cancellation Lead Time` - How long before check-in do guests cancel ?
+        - On average, guests cancel **82.10** days before check-in
+        - Somes guests cancel close to check-in:
            - **City Hotel**: ~**800** cancellations occured within 7 days of check-in, including **239** same-day cancellations (3% of all cancellations)
            - **Resort Hotel**:  the pattern of cancellations within 7 days of check-in exceeded the average - with high consistenly high volumes of cancellations in the 1-week window before check-in.
 
