@@ -12,7 +12,7 @@
 4. [Data Processing & Metrics Defination (Dax)]()
 5. [Hotel Room Reservation Timeline]()
 6. [Key Insights & Visualizations]()
-7. [Recommendations]()
+7. [Cancellation Policy Hypothesis & Recommendations]()
 # 📌Background & Objective
 ## Background: 
 - During **2015-2017**, the hotel chain in Portugal — one property in **Lisbon City**, and another in **Algarve Resort**) recorded more than **100.000** bookings from over **100** countries, made through channels (`TA/TO`, `Corporate`, `Direct` , `GDS` ).
@@ -221,7 +221,7 @@ This part will be in **Key Insights & Visualization** section.
 <img width="1303" height="728" alt="image" src="https://github.com/user-attachments/assets/5128b36b-df75-4857-813f-b2a6249b5665" />
 
 1. **Correlation between Window Booking Bucket & Cancellation Behavior**:
-    - Guests' booking behavior shows a clear pattern: the longer the booking window, the higher the cancellation rate.
+    - Guests' booking behavior shows a clear pattern: **the longer the booking window, the higher the cancellation rate**.
     - Most cancellations come from within `31-180+ day` bucket, with the `91-180 days` and `180+ days` buckets showing the highest cancellation rates (**60%**-**100%**)
 
     -> A trend of booking early to secure rooms in advance, then cancelling later.
@@ -230,7 +230,7 @@ This part will be in **Key Insights & Visualization** section.
     - During `spring` and `summer` (the peak travel season) - guests booked and cancelled the most (mainly within `31-90 days` & `91-180 days`) buckets.
 
 3. **Most impacted Guest segment**:
-    - Early-Bird guests accounted for the majority of cancellations (**78%**-**82%** across hotel types). Mainly **domestict Transient guests** from **Portugal** contributed to cancellations about **30%** in City and **60%** in Resort bringing in an estimated **$8.6M** revenue loss out of a total **$11.48M**.
+    - `Early-Bird guests` accounted for the majority of cancellations (**78%**-**82%** across hotel types). Mainly **domestict Transient guests** from **Portugal** contributed to cancellations about **30%** in City and **60%** in Resort bringing in an estimated **$8.6M** revenue loss out of a total **$11.48M**.
 
 - `Why do guests prefer Long-Window Booking?`
     - They prefer flexibility: booked early to secure their spot, with no deposit involed, they do not need to pay any fees until check-in.
@@ -241,9 +241,35 @@ This part will be in **Key Insights & Visualization** section.
 ## III. Operation Analysi
 <img width="1303" height="730" alt="image" src="https://github.com/user-attachments/assets/9d4516fa-2459-472a-975e-e7f54959926f" />
 
+1. **New guests or Old guest cancell more**
+    - Cancellation behavior came mostly from **new guests**, accounting for more than **99%** of all cancellations in both the City and Resort hotels.
+  
+   -> This indicates that `No Deposit` bookings through `TA/TO` channels are largely **non-guaranteed guests**. It makes the hotel difficult for predicting the "book-cancel" behavior of new guests.
+
+2. **Cancellation Behavior of Early-Bird Guests**
+    a. `Days to Cancellation` - How long after booking do guests cancel ?
+       - On average, guests cancel **46.26** days after making a reservation
+       - City & Resort Hotel: many guests cancel **on the same day** they made booking (**972 cancellations** - **12.18%** of total cancellations)
+
+       -> The earlier cancellation, the easier for the hotel to manage room inventory and resell those rooms in time.
+
+    b. `Cancellation Lead Time` - How long before check-in do guests cancel ?
+       - On average, guests cancel **82.10** days before check-in
+       - Somes guests cancel close to check-in:
+           - **City Hotel**: ~**800** cancellations occured within 7 days of check-in, including **239** same-day cancellations (3% of all cancellations)
+           - **Resort Hotel**:  the pattern of cancellations within 7 days of check-in exceeded the average - with high consistenly high volumes of cancellations in the 1-week window before check-in.
+
+3. **Consequences**
+    - For the hotel:
+        - Last-minute cancellations prevented the hotel from reselling 331 rooms, reducing the opportunity to sell to Last-Minute guests. This directly impacted the Occupancy Rate and potential revenue.
+    - For guests:
+        -  If guests cancel outside the allowed cancellation policy, they may be charged a penalty on their credit card (depending on each hotel’s policy).
+
+=> **`This analysis allows me to form a hypothesis about the cancellation policies of both hotel types, based on the observed Cancellation Lead Time — which is included in the conclusion and action recommendations.`**
 
 # 💡Recommendation
 
+Cancellation Policy Hypothesis
 
 
 
