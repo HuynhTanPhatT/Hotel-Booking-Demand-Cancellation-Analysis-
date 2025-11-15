@@ -2,7 +2,7 @@
 - Author: Huỳnh Tấn Phát
 - Date: 10/2025
 - Tool Used: `Python`, `SQL`, `PowerBi`
-    - Python: Pandas, Matplotlib, Numpy, Datetime, Seaborn
+    - Python: Pandas, Matplotlib, Numpy, Datetime
     - SQL: CTEs, Joins, Case, aggregate functions
     - PowerBi: Dax, calculated columns, data visualizaition, data modeling
 # ReadMe - Table Of Contents (TOCs)
@@ -15,11 +15,12 @@
 7. [Recommendations]()
 # 📌Background & Objective
 ## Background: 
+- During **2015-2017**, the hotel chain in Portugal — one property in **Lisbon City**, and another in **Algarve Resort**) recorded more than **100.000** bookings from over **100** countries, made through channels (`TA/TO`, `Corporate`, `Direct` , `GDS` ).
+- However, the **Revenue Manager** is facing some business challenges,  notably **30% cancellation rate**. If this continues, the hotel will lose a significant amount of `potential revenue` and affect room allocation.
 
 ## Objective:
 📖What is this probject about?
-
-This project aims to build a PowerBi dashboard using `Hotel Booking` dataset, which including data on transactions (**Booking Status**, **Booking Information**), guest details (**Guest Information**, **Country**), and booking-related dates (**Check In**, **Reservation Date**). Additionally, it also includes service-related data (**Meal**, **Room Type**). The goal is to provide the **Revenue Manager** with **data-driven insights** to:
+This project aims to provide the **Revenue Manager** with **data-driven insights** to:
 - Understand the current business performance
 - Identify the root cause of cancellations.
 - Uncover guest behavior pattern for cancellations.
@@ -54,7 +55,6 @@ This project aims to build a PowerBi dashboard using `Hotel Booking` dataset, wh
 - `Employ some several DAX formulas to calculate Key Performance Indicators (KPIs)`:
 <details>
     <summary>Click to view examples of DAX formulas</summary>
-
     <br>
 
 - **Cancelled Booking**:
@@ -127,16 +127,16 @@ DIVIDE(
     <summary>Click to view examples of DAX formulas</summary>
     <br>
 
-- **Days Cancel Before Check In**:
+- **Days to Cancellation**:
 ```dax
-days_cancell_before_check_in = FactTable[check_in] - FactTable[reservation_date]
-avg_days_cancell_before_check_in = AVERAGE(FactTable[days_cancell_before_check_in])
+days_to_cancellation = FactTable[reservation_date] - FactTable[BookingDate]
+Avg Days to Cancellation = AVERAGE(FactTable[days_to_cancellation])
 ```
 
 - **Days Before Last Status Update**:
 ```dax
-days_before_last_status_update = FactTable[reservation_date] - FactTable[BookingDate]
-6_Avg Cancellation before Last Update = AVERAGE(FactTable[days_before_last_status_update])
+cancellation_lead_time = FactTable[check_in] - FactTable[reservation_date]
+Avg Cancellation Lead Time = AVERAGE(FactTable[cancellation_lead_time])
 ```
 
 - **Repeated Guest**:
@@ -236,13 +236,22 @@ This part will be in **Key Insights & Visualization** section.
     - They prefer flexibility: booked early to secure their spot, with no deposit involed, they do not need to pay any fees until check-in.
     - Additionally, they could easily to cancel or alter their reservation if something unexpected or find a better deals.
     
-=> **`The no Deposit policy, with Early-Bird behavior drives "book early-easy cancel", resulting in high cancellation rates among long-window bookings.`**
+=> **`The no Deposit policy, with Early-Bird behavior drives "book early - cancel easily", resulting in high cancellation rates among long-window bookings.`**
 
-## III. Operation Analysis
+## III. Operation Analysi
 <img width="1303" height="730" alt="image" src="https://github.com/user-attachments/assets/9d4516fa-2459-472a-975e-e7f54959926f" />
 
 
 # 💡Recommendation
+
+
+
+
+
+
+
+
+
 
 
 
