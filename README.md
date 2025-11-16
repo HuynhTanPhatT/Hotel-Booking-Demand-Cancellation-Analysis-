@@ -1,4 +1,4 @@
-# 🏩Hotel Booking Demand & Cancellation Analysis - Understanding Early Booking with No Deposit Behavior (07/2015 - 10/2017)
+# 🏩Hotel Booking Demand & Cancellation Analysis - Understanding Long Booking Window with No Deposit Behavior (07/2015 - 10/2017)
 - Author: Huỳnh Tấn Phát
 - Date: 10/2025
 - Tool Used: `Python`, `SQL`, `PowerBi`
@@ -15,7 +15,7 @@
 7. [Cancellation Policy Hypothesis & Recommendations]()
 # 📌Background & Objective
 ## Background: 
-- During **2015-2017**, the hotel chain in Portugal — one property in **Lisbon City**, and another in **Algarve Resort**) recorded more than **100.000** bookings from over **100** countries, made through channels (`TA/TO`, `Corporate`, `Direct` , `GDS` ).
+- During **2015-2017**, the hotel chain in Portugal — one property in **Lisbon City**, and another in **Algarve Resort** recorded more than **100.000** bookings from over **100** countries, made through channels (`TA/TO`, `Corporate`, `Direct` , `GDS` ).
 - However, the **Revenue Manager** is facing some business challenges,  notably **30% cancellation rate**. If this continues, the hotel will lose a significant amount of `potential revenue` and affect room allocation.
 
 ## Objective:
@@ -47,7 +47,7 @@ This project aims to provide the **Revenue Manager** with **data-driven insights
 # Data Processing by Python & SQL & DAX
 1. Using [Python](https://github.com/HuynhTanPhatT/Hotel-Booking-Demand-Cancellation-Analysis-/tree/main/Python%3A%20Data%20Cleaning%20%26%20EDA) to: 
     - `Data Cleaning`: check data quality, handle null values, convert data types, detect data anamalies, and remove duplicate records.
-    - `Exploratory Data Analysis (EDA)`: identify the **pain points** of stakeholder (**revenue manager**).
+    - `Exploratory Data Analysis (EDA)`: identify the **pain points** of stakeholder (**Revenue Manager**).
 
 2. Using [SQL](https://github.com/HuynhTanPhatT/Hotel-Booking-Demand-Cancellation-Analysis-/tree/main/SQL%3A%20Answering%20Questions%20from%20the%20Define%20Stage%20of%20Design%20Thinking) to:
     - Answer detailed questions based on the **pain points** to define `a clearly analytical direction` for the Power Bi dashboard.
@@ -63,6 +63,7 @@ Cancelled Booking= CALCULATE(
         COUNTROWS(FactTable),
         FILTER(DimBookingStatus,
         DimBookingStatus[booking_status] = "Cancelled"))
+
 cancelled_bookings_pct = 
 VAR cancellations = CALCULATE(
         COUNTROWS(FactTable),
@@ -202,7 +203,7 @@ This part will be in **Key Insights & Visualization** section.
    -> Showing the hotel booking trend focused during the **peak travel seasons** (`spring`, `summer` and `autumn`) which are the best in terms of visiting **Portugal**.
 
 2. **Revenue & Revenue Loss & Cancellations**:
-    - Revenue increased steadily over the years, reaching **$34.41M** in 08/2017. However, **24.004** cancelled bookings led to a potential revenue of **$11.48M** (accounted for 33.37% of the total revenue).
+    - Revenue increased steadily over the years, reaching **$34.41M** in 08/2017. However, **24.004** cancelled bookings led to a potential revenue of **$11.48M** (accounted for **33.37%** of the total revenue).
 
 3. **Average Window Booking** & **ADR**:
     - The hotel applied a **flexible seasonal pricing strategy** with ADR (**$68**-**$183**) to optimize revenue. They set lower ADR during the **off season** (`winter`) and increased ADR during the **peak season**.
@@ -236,7 +237,7 @@ This part will be in **Key Insights & Visualization** section.
     - They prefer flexibility: booked early to secure their spot, with no deposit involed, they do not need to pay any fees until check-in.
     - Additionally, they could easily to cancel or alter their reservation if something unexpected or find a better deals.
     
-=> **`The no Deposit policy, with Early-Bird behavior drives "book early - cancel easily", resulting in high cancellation rates among long-window bookings.`**
+=> **`The No Deposit policy, with Early-Bird behavior drives "book early - cancel easily", resulting in high cancellation rates among long-window bookings.`**
 
 ## III. Operation Analysis
 <img width="1303" height="730" alt="image" src="https://github.com/user-attachments/assets/9d4516fa-2459-472a-975e-e7f54959926f" />
@@ -247,28 +248,25 @@ This part will be in **Key Insights & Visualization** section.
    -> This indicates that `No Deposit` bookings through `TA/TO` channels are largely **non-guaranteed guests**. It makes the hotel difficult for predicting the "book-cancel" behavior of new guests.
 
 2. **Cancellation Behavior of Early-Bird Guests**
-    - `Days to Cancellation` - How long after booking do guests cancel ?
+    - `Days to Cancellation`
         - On average, guests cancel **46.26** days after making a reservation
         - City & Resort Hotel: many guests cancel **on the same day** they made booking (**972 cancellations** - **12.18%** of total cancellations)
 
        -> The earlier cancellation, the easier for both hotels to manage room iventory and resell those rooms in time.
 
-    - `Cancellation Lead Time` - How long before check-in do guests cancel ?
+    - `Cancellation Lead Time`
         - On average, guests cancel **82.10** days before check-in date
         - Some guests cancel close to check-in date.
-            - City Hotel: ~**800** cancellations occured within 7 days of check-in, including **239** same-day cancellation (3% of all cancellation)
-            - Resort Hotel: the pattern of cancellations within 7 days of check-in exceeded the average - with a high volume of cancelled bookings in the week before check-in.
+            - City Hotel: ~**800** cancellations occured within 7 days of check-in, including **239** made on the check-in day(3% of all cancellations)
+            - Resort Hotel: the pattern of cancellations within 7 days of check-in exceeded the average, including  **92** same-day check-in cancellations - with a high volume of cancelled bookings in the week before check-in.
+
 
 
 3. **Consequences**
     - `For the Hotel`:
-        - Last-Minute cancellations prevented the hotel from selling **331** rooms (opportunity to sell to Last-Minute guests). This directly impacted the **Occupancy Rate** and **potential revenue**.
+        - Last-Minute cancellation on the check-in day resulted in **331**  unsold rooms, with no time to resell them -> This directly impacted the **Occupancy Rate** and **potential revenue**.
     - `For Guests`:
         - If guests cancel too late and outside the allowed cancellation policy, they may be charged a penalty on their credit card (depending on each hotel's policy)
-    - For the hoteL:
-        - Last-Minute cancellations made the hotel from not able to handle to sell 331 rooms (opportunity to sell to Last-Minute guests). This directly impacted the Occupancy Rate and Potential Revenue.
-
-=> **`This analysis allows me to form a hypothesis about cancellation policies of both hotel types, based on Cancellation Lead Time in the recommendations section`**
 
 
 # 💡Cancellation Policy Hypothesis & Recommendations
