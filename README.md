@@ -274,18 +274,8 @@ This part will be in **Key Insights & Visualization** section.
 # 💡Cancellation Policy Hypothesis & Recommendations
 
 ⚙️Cancellation Policy Hypothesis
-Dựa trên “pattern” của Cancellation Lead Time  để phân thành 2 chính sách hủy của từng loại Khách Sạn:
-| Hotel Types                  | Strategy                  | Insight                                                                                               | Recommendation                                                                                                                                                 |
-|-----------------------|---------------------------|-------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+Cancellation Policy Hypothesis based on `Cancellation Lead Time`
 
-
-City Hotel 
-(thành phố Lisbon)	Nhóm Cancellation Lead Time từ 0→7 ngày cao nhất với 761 lượt, trong đó ngày 0 (hủy vào ngày check-in) có (239 lượt - 3%)	Nếu Khách Hàng hủy đặt phòng trước 48 giờ trước thời điểm check-in	- Phòng bị hủy trong vòng 48 tiếng trước thời điểm check-in sẽ bị tính phí vào Credit Card.
-- ⚙️Kết quả: ngày 0 và ngày 1 dựa trên Cancellation Lead Time  vi phạm chính sách hủy.
-
-Resort Hotel 
-(khu nghỉ dưỡng Algarve)	Nhóm Cancellation Lead Time từ 0→7 ngày có 212 lượt , thấp hơn City nhưng vượt mức trung bình —  có 92 lượt vào ngày check-in.	Nếu Khách Hàng hủy đặt phòng trước 1 tuần trước thời điểm check-in 	- Phòng bị hủy trong vòng 1 tuần cho đến thời điểm check-in sẽ bị tính phí vào Credit Card.
-- ⚙️Kết quả: ngày 0 → ngày 7 dựa trên Cancellation Lead Time vi phạm chính sách.
 
 
 | **Hotel Type**             | **Insight**                                                                                                 | **Cancellation Policy**                                                              | **Late Cancelaltion Policy**                                                                                                                                                                                                                 |
