@@ -174,7 +174,7 @@ DIVIDE(non_repeated_guests,total_guests)
 
 
 ## 2️⃣Define
-<img width="1237" height="692" alt="image" src="https://github.com/user-attachments/assets/d182a8d2-e6ce-4b3a-90d7-bc0597d9d527" />
+<img width="1231" height="690" alt="image" src="https://github.com/user-attachments/assets/4ea8687a-9e8e-4b6d-96f6-b2fd0ac8e24f" />
 
 
 ## 3️⃣Ideate
