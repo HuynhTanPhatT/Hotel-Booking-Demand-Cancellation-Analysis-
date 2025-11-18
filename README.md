@@ -300,7 +300,7 @@ This part will be in **Key Insights & Visualization** section.
 - If guests book in advance (>120 days), the hotel can offer a discount rate for early commitment during peak season -> `A small deposit can discourage casual cancellations`.
 
 (2)💡Increase the guest return rate
-- Revenue Manager should **build customer loyalty** for both hotel types targeting: **long-term business**, **"non-guaranteed"** to **"guaranteed"**" guests.                                                                                                                                                                                                                                             
+- Revenue Manager should **build customer loyalty** for both hotel types targeting: **long-term business**, **"non-guaranteed"** to **"guaranteed"**" guests.    |                                                                                                                                                                                                                                         
                                                                                                 
 
 
