@@ -113,12 +113,13 @@ DIVIDE(
 
 - **Avg. Length of Stay**:
 ```dax
-Avg Window Booking = 
-DIVIDE(
-    CALCULATE(
-        SUMX(FactTable,FactTable[window_booking])),
-    CALCULATE(
-        COUNTROWS(FactTable)))
+Avg Length Of Stay = 
+VAR room_nights = CALCULATE(
+    SUMX(FactTable,
+    FactTable[week_nights] + FactTable[weekend_nights]))
+VAR total_bookings = [1_total_bookings]
+RETURN
+DIVIDE(room_nights,total_bookings)
 ```
 </details>
 
@@ -192,7 +193,7 @@ This part will be in **Key Insights & Visualization** section.
 
 # 📊Key Insights & Visualizations
 ## I. Business Overview
-<img width="1302" height="726" alt="image" src="https://github.com/user-attachments/assets/476eb5f6-b2e4-4a77-840a-2aa8ad04ee37" />
+<img width="1298" height="726" alt="image" src="https://github.com/user-attachments/assets/491ad19b-0998-47c0-abc4-3bb2158fbfec" />
 
 
 - The total number of bookings recorded from (07/2015 -> 08/2017) was **86.113** bookings:
@@ -223,7 +224,7 @@ This part will be in **Key Insights & Visualization** section.
 <img width="1303" height="728" alt="image" src="https://github.com/user-attachments/assets/5128b36b-df75-4857-813f-b2a6249b5665" />
 
 1. **Correlation between Window Booking Bucket & Cancellation Behavior**:
-    - Guests' booking behavior shows a clear pattern: **the longer the booking window, the higher the cancellation rate**.
+    - Guests' booking behavior shows a clear pattern: `the longer the booking window, the higher the cancellation rate`.
     - Most cancellations come from within `31-180+ day` bucket, with the `91-180 days` and `180+ days` buckets showing the highest cancellation rates (**60%**-**100%**)
 
     -> A trend of booking early to secure rooms in advance, then cancelling later.
@@ -243,7 +244,7 @@ This part will be in **Key Insights & Visualization** section.
 ## III. Operation Analysis
 <img width="1303" height="730" alt="image" src="https://github.com/user-attachments/assets/9d4516fa-2459-472a-975e-e7f54959926f" />
 
-1. **New guests or Old guest cancell more**
+1. **New guests or Old guest canceled the most ?**
     - Cancellation behavior came mostly from **new guests**, accounting for more than **99%** of all cancellations in both the City and Resort hotels.
   
    -> This indicates that `No Deposit` bookings through `TA/TO` channels are largely **non-guaranteed guests**. It makes the hotel difficult for predicting the "book-cancel" behavior of new guests.
@@ -272,27 +273,35 @@ This part will be in **Key Insights & Visualization** section.
 
 # 💡Cancellation Policy Hypothesis & Recommendations
 
-⚙️Cancellation Policy Hypothesis
-Cancellation Policy Hypothesis based on `Cancellation Lead Time`
+⚙️Cancellation Policy Hypothesis based on `Cancellation Lead Time`
 
 
 
 | **Hotel Type**             | **Insight**                                                                                                 | **Cancellation Policy**                                                              | **Late Cancelaltion Policy**                                                                                                                                                                                                                 |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **City Hotel (Lisbon)**    | `The 0–7 day Cancellation Lead Time` recorded the highest volume (**761 cancellations**), including **239 same-day cancellations (3%)**.                | Guests are allowed to cancel **up to 48 hours before check-in** without penalty. | - Cancellations made **within 48 hours** before check-in are likely charged to the guest’s credit card. <br> - ⚙️ Based on the Cancellation Lead Time pattern: **Day 0 and Day 1 cancellations violate the hotel’s policy**. |
-| **Resort Hotel (Algarve)** | `The 0–7 day Cancellation Lead Time` recorded **212 cancellations**, lower than the City hotel, but still above average — including **92 same-day cancellations**. | Guests are allowed to cancel **up to 7 days before check-in** without penalty.   | - Cancellations made **within 7 days** before check-in are likely charged to the guest’s credit card. <br> - ⚙️ Based on the Cancellation Lead Time pattern: **Day 0 to Day 7 cancellations violate the hotel’s policy**.                     |
+| **City Hotel (Lisbon)**    | `The 0–7 day Cancellation Lead Time` recorded the highest volume (**761 cancellations**), including **239 same-day cancellations (3%)**.                | Guests are allowed to cancel **up to 48 hours before Check-In** without penalty. | - Cancellations made **within 48 hours** before check-in are likely charged to the guest’s credit card. <br> - ⚙️ Based on the Cancellation Lead Time pattern: **Day 0 and Day 1 cancellations violate the hotel’s policy**. |
+| **Resort Hotel (Algarve)** | `The 0–7 day Cancellation Lead Time` recorded **212 cancellations**, lower than the City hotel, but still above average — including **92 same-day cancellations**. | Guests are allowed to cancel **up to 7 days before Check-In** without penalty.   | - Cancellations made **within 7 days** before Check-In are likely charged to the guest’s credit card. <br> - ⚙️ Based on the Cancellation Lead Time pattern: **Day 0 to Day 7 cancellations violate the hotel’s policy**.                     |
 
 
-💡Recommendation
+💡Recommendation: Focusing on they key segments (**12.67K** out of **24.00K** cancellations) provides the hotel with solutions that can improve the cancellation problem.
 
-Focusing on the key segments (**12.67K** out of **24.00K** cancellations) - allows the hotel to adress over 50% of total cancellations first.
+
+
+
+
+
+
+
 
 | **Who**             | **Strategy**                      | **Insight**                                                                                                                                                                                                                                                                                                                                                  | **Recommendation**                                                                                                                                                                                                                                                                                                                            |
 | ------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Revenue Manager** | **1. Build Customer Loyalty**     | • Over **99% of cancellations** came from **new guests**, making the “book–cancel” behavior unpredictable.                                                                                                                                                                                                                                                   | • 💡Build customer loyalty programs to increase repeat guests.<br>• Nuture and retain repeat customers can lead to long-term business sucess and postivie mareting.”                         
-                                                                                                                                                      |
-| **Revenue Manager** | **2. Review Cancellation Policy** | • Both hotels need to review the policy, because under the `No Deposit policy`, many guests still canceled **on the check-in day**.                                                                                                                                                                                                                                                              | •                                                                 |
-| **Operations Team** | **3. Improve Booking Management** | • The hotels should avoid same-day cancellations from no-deposit guests.<br>▪ **City Hotel:** nearly **800 cancellations within 7 days** before check-in, including **239 same-day cancellations (3%)**.<br>▪ **Resort Hotel:** the 0–7 day cancellation pattern exceeded the average, with consistently high cancellations within one week before check-in. | •  |
+| **Revenue Manager** | **1. Build Customer Loyalty**     | • ⇑99% of cancellations in the key segments came from **new guests** (first-time bookers across both hotels).   <br> • These guests tend to "book early to secure a room" in **31-180 days** bucket  <br> • The **No Deposit** policy turns the guests into "non-guaranteed", making it hard for the hotel to predict "whether they come" or "when they will cancel".         |
+(1)💡Create a small-deposit opportunity for early-bird
+- If guests book in advance (>120 days), the hotel can offer a discount rate for early commitment during peak season -> `A small deposit can discourage casual cancellations`.
+
+(2)💡Increase the guest return rate
+- Revenue Manager should **build customer loyalty** for both hotel types targeting: **long-term business**, **"non-guaranteed"** to **"guaranteed"**" guests.                                                                                                                                                                                                                                             
+                                                                                                
 
 
 
