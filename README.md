@@ -242,7 +242,7 @@ This part will be in **Key Insights & Visualization** section.
 => **`The No Deposit policy, with Early-Bird behavior drives "book early - cancel easily", resulting in high cancellation rates among long-window bookings.`**
 
 ## III. Operation Analysis
-<img width="1303" height="730" alt="image" src="https://github.com/user-attachments/assets/9d4516fa-2459-472a-975e-e7f54959926f" />
+<img width="1302" height="725" alt="image" src="https://github.com/user-attachments/assets/e6438e26-a6fa-4850-bebe-1fcf7ae8b06e" />
 
 1. **New guests or Old guest canceled the most ?**
     - Cancellation behavior came mostly from **new guests**, accounting for more than **99%** of all cancellations in both the City and Resort hotels.
