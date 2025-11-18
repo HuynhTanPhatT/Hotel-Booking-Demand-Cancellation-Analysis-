@@ -193,7 +193,7 @@ This part will be in **Key Insights & Visualization** section.
 
 # 📊Key Insights & Visualizations
 ## I. Business Overview
-<img width="1298" height="726" alt="image" src="https://github.com/user-attachments/assets/491ad19b-0998-47c0-abc4-3bb2158fbfec" />
+<img width="1301" height="726" alt="image" src="https://github.com/user-attachments/assets/fb691457-bc14-4164-8811-7709e3a7639f" />
 
 
 - The total number of bookings recorded from (07/2015 -> 08/2017) was **86.113** bookings:
