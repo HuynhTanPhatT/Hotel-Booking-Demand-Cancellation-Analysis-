@@ -221,7 +221,7 @@ This part will be in **Key Insights & Visualization** section.
 => **`The 3 main factors driving the highest revenue loss and cancellations are European guests, TA/TO channel, and the No Deposit policy.`**
 
 ## II. Guest Behavior Analysis
-<img width="1303" height="728" alt="image" src="https://github.com/user-attachments/assets/5128b36b-df75-4857-813f-b2a6249b5665" />
+<img width="1298" height="728" alt="image" src="https://github.com/user-attachments/assets/aa1cb549-45ef-40b3-857f-7f877f2d77f2" />
 
 1. **Correlation between Window Booking Bucket & Cancellation Behavior**:
     - Guests' booking behavior shows a clear pattern: `the longer the booking window, the higher the cancellation rate`.
